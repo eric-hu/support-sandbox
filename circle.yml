@@ -12,4 +12,3 @@ dependencies:
 test:
   override:
     - pecl install xdebug
-
