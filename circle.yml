@@ -7,7 +7,7 @@ machine:
 
 dependencies:
   override:
-    - phpenv global 7.0.0
+    - phpenv global 7.0.2
 
 test:
   override:
