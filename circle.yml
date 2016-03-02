@@ -1,4 +1,4 @@
 test:
   override:
     - ping -c 5 www.google.com:
-      timeout: 100
+      - timeout: 100
