@@ -1,10 +1,11 @@
-machine:
-  post:
-    - sudo rm -rf /usr/local/go
-    - if [ ! -e go1.6.linux-amd64.tar.gz ]; then curl -o go1.6.linux-amd64.tar.gz https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz; fi
-    - sudo tar -C /usr/local -xzf go1.6.linux-amd64.tar.gz
+deployment:
+  branch: heroku-toolbelt-plugin
+  commands:
+    - pushd ~
+    - git clone https://github.com/joshwlewis/heroku-docker.git
+    - cd heroku-docker
+    - npm install
+    - heroku plugins:link .
+    - popd
+    - heroku plugins
 
-
-test:
-  override:
-    - go version
