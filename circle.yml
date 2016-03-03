@@ -1,3 +1,6 @@
+machine:
+  post:
+    - gem install heroku
 test:
   override:
     - echo "foo"
