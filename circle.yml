@@ -1,3 +1,7 @@
+test:
+  override:
+    - echo "foo"
+
 deployment:
   staging:
     branch: heroku-toolbelt-plugin
