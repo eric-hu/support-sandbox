@@ -1,11 +1,12 @@
 deployment:
-  branch: heroku-toolbelt-plugin
-  commands:
-    - pushd ~
-    - git clone https://github.com/joshwlewis/heroku-docker.git
-    - cd heroku-docker
-    - npm install
-    - heroku plugins:link .
-    - popd
-    - heroku plugins
+  docker:
+    branch: heroku-toolbelt-plugin
+    commands:
+      - pushd ~
+      - git clone https://github.com/joshwlewis/heroku-docker.git
+      - cd heroku-docker
+      - npm install
+      - heroku plugins:link .
+      - popd
+      - heroku plugins
 
