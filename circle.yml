@@ -5,4 +5,4 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker build -t support-sandbox/foo:$CIRCLE_SHA1 .
+    - sudo docker build -t support-sandbox/foo:$CIRCLE_SHA1 .
