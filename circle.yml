@@ -3,5 +3,6 @@ machine:
     - docker
 
 dependencies:
-  post:
-    - docker build -t support-sandbox:$CIRCLE_SHA1 .
+  override:
+    - docker info
+    - docker build -t support-sandbox/foo:$CIRCLE_SHA1 .
