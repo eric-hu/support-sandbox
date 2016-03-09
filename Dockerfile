@@ -1,3 +1,3 @@
 FROM circleci/ubuntu-server:trusty-latest
 
-RUN sudo circleci-install scala
+RUN /usr/local/bin/circleci-install scala
