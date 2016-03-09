@@ -4,4 +4,4 @@ machine:
 
 dependencies:
   pre:
-    - docker build -t support-sandbox:$CIRCLE_SHA1
+    - docker build -t support-sandbox:$CIRCLE_SHA1 .
