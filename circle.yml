@@ -1,6 +1,8 @@
+machine:
+  post:
+    - ls "/opt/circleci/.rvm/archives"
+
 dependencies:
   cache_directories:
     - "/opt/circleci/.rvm/archives"
-  pre:
-    - ls "/opt/circleci/.rvm/archives"
 
