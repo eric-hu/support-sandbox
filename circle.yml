@@ -1,3 +1,7 @@
+dependencies:
+  cache_directories:
+    - "/opt/circleci/.rvm"
+
 machine:
   ruby:
     version: 2.1.5
