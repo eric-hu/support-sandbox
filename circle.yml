@@ -1,8 +1,0 @@
-machine:
-  services:
-    - docker
-
-dependencies:
-  override:
-    - docker info
-    - sudo docker build -t support-sandbox/foo:$CIRCLE_SHA1 .
