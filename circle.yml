@@ -1,4 +1,4 @@
 dependencies:
   cache_directories:
-    - "/opt/circleci/.rvm"
+    - "$rvm_path/archives"
 
