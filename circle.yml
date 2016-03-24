@@ -1,7 +1,6 @@
 machine:
-  environment:
-    foo: $PATH
-    PATH: $PATH:/opt
+  pre:
+    - cat support-sandbox/circle.yml
 
 test:
   override:
