@@ -1,3 +1,8 @@
+machine:
+  environment:
+    foo: $PATH
+    PATH: $PATH:/opt
+
 test:
   override:
     - ping -c 5 www.google.com:
