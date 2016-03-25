@@ -1,5 +1,6 @@
 machine:
-  ruby: 2.2.0
+  ruby:
+    version: 2.2.0
 
 dependencies:
   pre:
