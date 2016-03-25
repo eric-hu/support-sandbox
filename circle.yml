@@ -1,8 +1,7 @@
 machine:
-  post:
-    - ls "/opt/circleci/.rvm/archives"
+  ruby: 2.2.0
 
 dependencies:
-  cache_directories:
-    - "/opt/circleci/.rvm/archives"
-
+  pre:
+    - gem install bundler -v '1.10.6'
+    - bundle --version
