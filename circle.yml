@@ -1,8 +1,7 @@
 machine:
   pre:
-    - cat support-sandbox/circle.yml
+    - sudo service mysql stop
 
 test:
   override:
-    - ping -c 5 www.google.com:
-        timeout: 100
+    - exit 0
