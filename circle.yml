@@ -1,6 +1,9 @@
-machine:
-  pre:
-    - sudo service mysql stop
+#machine:
+  #pre:
+    #- sudo service mysql stop
+checkout:
+  override:
+    - git pull --all --unshallow
 
 test:
   override:
