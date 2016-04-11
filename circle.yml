@@ -1,10 +1,15 @@
 #machine:
   #pre:
     #- sudo service mysql stop
-checkout:
-  override:
-    - git pull --all --unshallow
+
+#checkout:
+  #override:
+    #- git pull --all --unshallow
 
 test:
   override:
     - exit 0
+  post:
+    - ls /home/ubuntu/.heroku/node-v5.7.1-linux-x64/bin/node
+    - ls /home/ubuntu/.heroku/node-v5.7.1-linux-x64/lib/node_modules/npm/cli.js
+    - heroku plugins:install heroku-builds
