@@ -1,6 +1,11 @@
-#machine:
-  #pre:
-    #- sudo service mysql stop
+machine:
+  services:
+    - redis
+
+dependencies:
+  post:
+    - ls -la /var/run/redis/ || true
+    - cat /var/run/redis/redis-server.pid || true
 
 #checkout:
   #override:
@@ -9,7 +14,7 @@
 test:
   override:
     - exit 0
-  post:
-    - ls /home/ubuntu/.heroku/node-v5.7.1-linux-x64/bin/node
-    - ls /home/ubuntu/.heroku/node-v5.7.1-linux-x64/lib/node_modules/npm/cli.js
-    - heroku plugins:install heroku-builds
+  #post:
+    #- ls /home/ubuntu/.heroku/node-v5.7.1-linux-x64/bin/node
+    #- ls /home/ubuntu/.heroku/node-v5.7.1-linux-x64/lib/node_modules/npm/cli.js
+    #- heroku plugins:install heroku-builds
