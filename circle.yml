@@ -13,8 +13,8 @@ test:
     - exit 0
   post:
     - ls -la /var/run/redis/:
-        - parallel: true
+      - parallel: true
     - cat /var/run/redis/redis-server.pid:
-        - parallel: true
+      - parallel: true
     - sudo tail --lines=20 /var/log/redis/redis-server.log:
-        - parallel: true
+      - parallel: true
