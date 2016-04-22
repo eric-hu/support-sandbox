@@ -4,12 +4,8 @@ machine:
 
 test:
   override:
-    - "exit 0":
-        - parallel: false
-    - "ls -la /var/run/redis/":
-        - parallel: true
-    - "cat /var/run/redis/redis-server.pid":
-        - parallel: true
-    - "sudo tail --lines=20 /var/log/redis/redis-server.log":
-        - parallel: true
+    - "exit 0"
+    - "ls -la /var/run/redis/"
+    - "cat /var/run/redis/redis-server.pid"
+    - "sudo tail --lines=20 /var/log/redis/redis-server.log"
 
