@@ -12,7 +12,6 @@ machine:
 test:
   override:
     - exit 0
-  post:
     - ls -la /var/run/redis/ || true
         - parallel: true
     - cat /var/run/redis/redis-server.pid
