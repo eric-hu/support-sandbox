@@ -5,7 +5,7 @@ machine:
 dependencies:
   post:
     - ls -la /var/run/redis/ || true
-    - cat /var/run/redis/redis-server.pid || true
+    - cat /var/run/redis/redis-server.pid
 
 #checkout:
   #override:
