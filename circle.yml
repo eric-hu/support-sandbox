@@ -5,7 +5,11 @@ machine:
 dependencies:
   post:
     - ls -la /var/run/redis/ || true
+        - parallel: true
     - cat /var/run/redis/redis-server.pid
+        - parallel: true
+    - sudo tail --lines=20 /var/log/redis/redis-server.log
+        - parallel: true
 
 #checkout:
   #override:
