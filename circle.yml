@@ -2,14 +2,7 @@ machine:
   services:
     - redis
 
-dependencies:
-  post:
-    - ls -la /var/run/redis/:
-        - parallel: true
-    - cat /var/run/redis/redis-server.pid:
-        - parallel: true
-    - sudo tail --lines=20 /var/log/redis/redis-server.log:
-        - parallel: true
+#dependencies:
 
 #checkout:
   #override:
@@ -18,7 +11,10 @@ dependencies:
 test:
   override:
     - exit 0
-  #post:
-    #- ls /home/ubuntu/.heroku/node-v5.7.1-linux-x64/bin/node
-    #- ls /home/ubuntu/.heroku/node-v5.7.1-linux-x64/lib/node_modules/npm/cli.js
-    #- heroku plugins:install heroku-builds
+  post:
+    - ls -la /var/run/redis/:
+        - parallel: true
+    - cat /var/run/redis/redis-server.pid:
+        - parallel: true
+    - sudo tail --lines=20 /var/log/redis/redis-server.log:
+        - parallel: true
