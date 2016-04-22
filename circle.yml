@@ -10,7 +10,8 @@ machine:
 
 test:
   override:
-    - exit 0
+    - exit 0:
+      - parallel: false
     - ls -la /var/run/redis/:
       - parallel: true
     - cat /var/run/redis/redis-server.pid:
