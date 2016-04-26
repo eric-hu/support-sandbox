@@ -1,11 +1,7 @@
-machine:
-  services:
-    - redis
+dependencies:
+  post:
+    - sudo apt-get update
 
 test:
   override:
-    - "exit 0"
-    - "ls -la /var/run/redis/"
-    - "cat /var/run/redis/redis-server.pid"
-    - "sudo tail --lines=20 /var/log/redis/redis-server.log"
-
+    - exit 0
