@@ -1,3 +1,3 @@
 source "https://rubygems.org"
 
-gem "bundler", "1.10.6"
+gem "sunspot_solr", "2.0.0"
