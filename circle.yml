@@ -8,6 +8,6 @@ test:
 
 deployment:
   clientbuild:
-    branch: $CIRCLE_BRANCH
+    branch: /.*/
     commands:
       - echo "In deployment section"
