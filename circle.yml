@@ -1,7 +1,13 @@
-dependencies:
-  post:
-    - sudo apt-get update
+#dependencies:
+  #post:
+    #- sudo apt-get update
 
 test:
   override:
     - exit 0
+
+deployment:
+  clientbuild:
+    branch: $CIRCLE_BRANCH
+    commands:
+      - echo "In deployment section"
