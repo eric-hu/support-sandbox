@@ -2,12 +2,22 @@
   #post:
     #- sudo apt-get update
 
+machine:
+  services:
+    - redis
+
+dependencies:
+  pre:
+    - "ls -la /var/run/redis/"
+    - "cat /var/run/redis/redis-server.pid"
+    - "sudo tail --lines=20 /var/log/redis/redis-server.log"
+
 test:
   override:
     - exit 0
-
-deployment:
-  clientbuild:
-    branch: /.*/
-    commands:
-      - echo "In deployment section"
+  post:
+    - |
+      curl -X POST \
+      --header "Content-Type: application/json" \
+      -d "{}" \
+      https://circleci.com/api/v1/project/eric-hu/support-sandbox/tree/find-flakey-redis?circle-token=$REPO_TOKEN
