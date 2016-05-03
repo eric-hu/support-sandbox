@@ -14,7 +14,11 @@ dependencies:
 
 test:
   override:
-    - redis-cli ping || sleep 1200
+    - |
+      redis-cli ping || \
+      curl -D POST \
+      "https://slack.com/api/chat.postMessage?token=$SLACK_API_TOKEN&channel=%40eric&text=you%20found%20a%20flakey%20failure&pretty=1" \ &&
+      sleep 1200
     - redis-cli info
     - exit 0
   post:
@@ -22,4 +26,4 @@ test:
       curl -X POST \
       --header "Content-Type: application/json" \
       -d "{}" \
-      https://circleci.com/api/v1/project/eric-hu/support-sandbox/tree/find-flakey-redis?circle-token=$REPO_TOKEN
+      "https://circleci.com/api/v1/project/eric-hu/support-sandbox/tree/find-flakey-redis?circle-token=$CIRCLE_REPO_TOKEN"
