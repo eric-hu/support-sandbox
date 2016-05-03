@@ -15,6 +15,7 @@ dependencies:
 test:
   override:
     - redis-cli ping
+    - redis-cli info
     - exit 0
   post:
     - |
