@@ -17,7 +17,7 @@ test:
     - |
       redis-cli ping || \
       (curl -D POST \
-      "https://slack.com/api/chat.postMessage?token=$SLACK_API_TOKEN&channel=%40eric&text=you%20found%20a%20flakey%20failure&pretty=1" \ &&
+      "https://slack.com/api/chat.postMessage?token=$SLACK_API_TOKEN&channel=%40eric&text=you%20found%20a%20flakey%20failure&pretty=1" ; \
       sleep 1200)
     - redis-cli info
     - exit 0
