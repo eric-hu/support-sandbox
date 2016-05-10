@@ -1,13 +1,9 @@
-#dependencies:
-  #post:
-    #- sudo apt-get update
+dependencies:
+  post:
+    - export FOO=bar
 
 test:
   override:
+    - echo $FOO
     - exit 0
 
-deployment:
-  clientbuild:
-    branch: /.*/
-    commands:
-      - echo "In deployment section"
