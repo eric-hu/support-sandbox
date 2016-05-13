@@ -6,16 +6,14 @@ test:
   override:
     - exit 0
 
-deployment:
-  dev-shared:
-    branch: some-long-unlikely-to-be-matched-string
+general:
+  dev-shared: &dev-shared
+    owner: foo
     commands:
-        - echo "unused"
-    shared: &dev-shared
-      owner: foo
-      commands:
-        - echo "dev"
+      - echo "dev"
 
+
+deployment:
   dev-tag:
     <<: *dev-shared
     tag: /dev-.*/
