@@ -7,12 +7,16 @@ test:
     - exit 0
 
 deployment:
-  dev-tag:
+  dev-shared:
+    branch: some-long-unlikely-to-be-matched-string
+    commands:
+        - echo "unused"
     shared: &dev-shared
       owner: foo
       commands:
         - echo "dev"
 
+  dev-tag:
     <<: *dev-shared
     tag: /dev-.*/
 
