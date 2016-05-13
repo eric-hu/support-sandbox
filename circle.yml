@@ -6,21 +6,20 @@ test:
   override:
     - exit 0
 
+shared-deploys:
+  dev: &dev-shared
+    owner: foo
+    commands:
+      - echo "dev"
 
 deployment:
-  #dev-tag:
-    #*misc-dev
   dev-tag:
-    branch: dev
-    owner: foo
-    commands:
-      - echo "dev"
+    <<: *dev-shared
+    tag: /dev-.*/
 
   dev-branch:
-    tag: /dev-.*/
-    owner: foo
-    commands:
-      - echo "dev"
+    <<: *dev-shared
+    branch: dev
 
   qa:
     tag: /qa-.*/
