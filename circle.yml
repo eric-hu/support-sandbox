@@ -7,13 +7,12 @@ test:
     - exit 0
 
 deployment:
-  shared-deploys:
-    dev: &dev-shared
+  dev-tag:
+    shared: &dev-shared
       owner: foo
       commands:
         - echo "dev"
 
-  dev-tag:
     <<: *dev-shared
     tag: /dev-.*/
 
