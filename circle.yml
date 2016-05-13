@@ -1,9 +1,34 @@
-dependencies:
-  post:
-    - export FOO=bar
+#dependencies:
+  #post:
+    #- export FOO=bar
 
 test:
   override:
-    - echo $FOO
     - exit 0
 
+
+deployment:
+  #dev-tag:
+    #*misc-dev
+  dev-tag:
+    branch: dev
+    owner: foo
+    commands:
+      - echo "dev"
+
+  dev-branch:
+    tag: /dev-.*/
+    owner: foo
+    commands:
+      - echo "dev"
+
+  qa:
+    tag: /qa-.*/
+    owner: foo
+    commands:
+      - echo "qa"
+  prod:
+    tag: /prod-.*/
+    owner: foo
+    commands:
+      - echo "prod"
