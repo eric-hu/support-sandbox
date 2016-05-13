@@ -6,11 +6,12 @@ test:
   override:
     - exit 0
 
-shared-deploys:
-  dev: &dev-shared
-    owner: foo
-    commands:
-      - echo "dev"
+experimental:
+  shared-deploys:
+    dev: &dev-shared
+      owner: foo
+      commands:
+        - echo "dev"
 
 deployment:
   dev-tag:
