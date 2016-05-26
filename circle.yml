@@ -1,34 +1,13 @@
+machine:
+  ruby:
+    version: 2.3.1
+
 #dependencies:
   #post:
     #- export FOO=bar
 
 test:
   override:
+    - ruby --version
     - exit 0
 
-general:
-  dev-shared: &dev-shared
-    owner: foo
-    commands:
-      - echo "dev"
-
-
-deployment:
-  dev-tag:
-    <<: *dev-shared
-    tag: /dev-.*/
-
-  dev-branch:
-    <<: *dev-shared
-    branch: dev
-
-  qa:
-    tag: /qa-.*/
-    owner: foo
-    commands:
-      - echo "qa"
-  prod:
-    tag: /prod-.*/
-    owner: foo
-    commands:
-      - echo "prod"
