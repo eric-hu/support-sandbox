@@ -21,3 +21,4 @@ deployment:
     tag: /(?i).*-rc\d+/
     commands:
       - echo "test with dashes"
+
