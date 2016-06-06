@@ -14,6 +14,5 @@ test:
 deployment:
   test:
     tag: /[0-9]+\.[0-9]+\.[0-9]+/
-    owner: erichu
     commands:
       - exit 0
