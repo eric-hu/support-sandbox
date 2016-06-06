@@ -13,7 +13,7 @@ test:
 
 deployment:
   test:
-    tag: test
+    tag: /\d+\.\d+\.\d+/
     owner: erichu
     commands:
       - exit 0
