@@ -1,6 +1,6 @@
-machine:
-  ruby:
-    version: 2.3.1
+#machine:
+  #ruby:
+    #version: 2.3.1
 
 #dependencies:
   #post:
@@ -8,6 +8,19 @@ machine:
 
 test:
   override:
-    - ruby --version
     - exit 0
+    - echo $CIRCLE_TAG
 
+deployment:
+  test:
+    tag: test
+    owner: erichu
+    commands:
+      - exit 0
+
+  circle-yml:
+    branch: /.*yml.*/
+    owner: erichu
+    commands:
+      - echo "circle-yml"
+      - exit 0
