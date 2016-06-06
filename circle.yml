@@ -18,6 +18,6 @@ deployment:
       - exit 0
 
   test-with-dashes:
-    tag: /.*-rc\d+/i
+    tag: /(?i).*-rc\d+/
     commands:
       - echo "test with dashes"
