@@ -19,8 +19,7 @@ deployment:
       - exit 0
 
   circle-yml:
-    branch: /.*-yml-.*/
-    owner: erichu
+    branch: /.*yml.*/
     commands:
       - echo "circle-yml"
       - exit 0
