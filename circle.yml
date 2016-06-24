@@ -1,7 +1,6 @@
 machine:
   pre:
-    - sudo echo "nameserver 10.2.216.2" > /etc/resolv.conf
-    - sudo cat /etc/resolv.conf
+    - echo "set -v" >> ~/.bashrc
 
   #ruby:
     #version: 2.3.1
@@ -12,7 +11,6 @@ machine:
 
 test:
   override:
-    - sudo cat /etc/resolv.conf
     - exit 0
 
 #deployment:
