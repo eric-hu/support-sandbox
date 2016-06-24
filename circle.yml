@@ -1,6 +1,10 @@
-machine:
+checkout:
   pre:
     - echo "set -v" >> ~/.bashrc
+
+#machine:
+  #pre:
+    #- echo "set -v" >> ~/.bashrc
 
   #ruby:
     #version: 2.3.1
