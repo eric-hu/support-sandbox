@@ -8,11 +8,11 @@ machine:
 
 test:
   pre:
-    - echo "node: $CIRCLE_NODE_INDEX" > $CIRCLE_ARTIFACTS/node-pre.txt
+    - "echo \"node: $CIRCLE_NODE_INDEX\" > $CIRCLE_ARTIFACTS/node-pre.txt"
   override:
     - exit 0
   pre:
-    - echo "node: $CIRCLE_NODE_INDEX" > $CIRCLE_ARTIFACTS/node-post.txt
+    - "echo \"node: $CIRCLE_NODE_INDEX\" > $CIRCLE_ARTIFACTS/node-post.txt"
 
 #deployment:
   #test:
