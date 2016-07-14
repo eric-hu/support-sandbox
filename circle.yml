@@ -8,13 +8,13 @@ machine:
 
 test:
   pre:
-    - 'echo "node:"$CIRCLE_NODE_INDEX > $CIRCLE_ARTIFACTS/node-pre.txt':
+    - 'echo "node is "$CIRCLE_NODE_INDEX > $CIRCLE_ARTIFACTS/node-pre.txt':
       - parallel: true
 
   override:
     - exit 0
   post:
-    - 'echo "node:"$CIRCLE_NODE_INDEX > $CIRCLE_ARTIFACTS/node-post.txt':
+    - 'echo "node is "$CIRCLE_NODE_INDEX > $CIRCLE_ARTIFACTS/node-post.txt':
       - parallel: true
 
 #deployment:
