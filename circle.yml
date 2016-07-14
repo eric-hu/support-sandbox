@@ -9,13 +9,13 @@ machine:
 test:
   pre:
     - "echo \"node: $CIRCLE_NODE_INDEX\" > $CIRCLE_ARTIFACTS/node-pre.txt":
-      parallel: true
+      - parallel: true
 
   override:
     - exit 0
-  pre:
+  post:
     - "echo \"node: $CIRCLE_NODE_INDEX\" > $CIRCLE_ARTIFACTS/node-post.txt":
-      parallel: true
+      - parallel: true
 
 #deployment:
   #test:
