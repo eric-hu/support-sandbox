@@ -1,17 +1,18 @@
 machine:
-  php:
-    version: 5.6.225
-
-  #ruby:
-    #version: 2.3.1
+  ruby:
+    version: 2.3.1
 
 #dependencies:
   #post:
     #- export FOO=bar
 
 test:
+  pre:
+    - echo "node: $CIRCLE_NODE_INDEX" > $CIRCLE_ARTIFACTS/node-pre.txt
   override:
     - exit 0
+  pre:
+    - echo "node: $CIRCLE_NODE_INDEX" > $CIRCLE_ARTIFACTS/node-post.txt
 
 #deployment:
   #test:
