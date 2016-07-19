@@ -2,20 +2,13 @@ machine:
   ruby:
     version: 2.3.1
 
-#dependencies:
-  #post:
-    #- export FOO=bar
+dependencies:
+  pre:
+    - echo y | android update sdk --no-ui --all --filter "build-tools-24.0.0"
 
 test:
-  pre:
-    - 'echo "node: "$CIRCLE_NODE_INDEX > $CIRCLE_ARTIFACTS/node-pre.txt':
-        parallel: true
-
   override:
     - exit 0
-  post:
-    - 'echo "node: "$CIRCLE_NODE_INDEX > $CIRCLE_ARTIFACTS/node-post.txt':
-        parallel: true
 
 #deployment:
   #test:
