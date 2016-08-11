@@ -1,10 +1,11 @@
-machine:
-  ruby:
-    version: 2.3.1
+#machine:
+  #ruby:
+    #version: 2.3.1
 
 dependencies:
   pre:
-    - bundler -v
+    - echo y | android update sdk --no-ui --all --filter "tools,platform-tools,android-23,extra-google-m2repository,extra-android-m2repository,extra-android-support"
+
 
 test:
   override:
