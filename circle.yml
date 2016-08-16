@@ -4,12 +4,12 @@
 
 dependencies:
   pre:
-    - sleep 599
+    - sleep 550
 
 
 test:
   override:
-    - sleep 599
+    - sleep 550
     - exit 0
 
 #deployment:
