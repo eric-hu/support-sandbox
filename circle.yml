@@ -1,6 +1,6 @@
-machine:
-  pre:
-    - rm ~/support-sandbox/.ruby-version
+#machine:
+  #pre:
+    #- rm ~/support-sandbox/.ruby-version
   #ruby:
     #version: 2.3.1
 
