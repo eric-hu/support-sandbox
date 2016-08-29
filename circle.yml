@@ -1,12 +1,12 @@
 machine:
-  pre:
-    - rm ~/support-sandbox/.ruby-version
+  services:
+    - docker
   #ruby:
     #version: 2.3.1
 
-dependencies:
-  pre:
-    - ls ~/support-sandbox
+#dependencies:
+  #pre:
+    #- ls ~/support-sandbox
     #- sleep 550
 
 
