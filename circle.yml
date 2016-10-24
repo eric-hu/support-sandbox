@@ -9,9 +9,10 @@ dependencies:
     - |
       if [[ $CIRCLE_NODE_INDEX = 0 ]]; then
         gem install bundler && bundle install && touch ruby_deps_installed ;
-      else
-        ssh node0 "ls $HOME/"
       fi
+    - if [[ $CIRCLE_NODE_INDEX != 0]]; then ssh node0 "ls $HOME/"; fi:
+        parallel: true
+
     #- sleep 550
 
 
