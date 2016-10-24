@@ -4,16 +4,17 @@ machine:
   #ruby:
     #version: 2.3.1
 
-#dependencies:
-  #pre:
-    #- ls ~/support-sandbox
+dependencies:
+  pre:
+    - |
+      if [[ CIRCLE_NODE_INDEX == 0 ]]; then gem install bundler && touch ruby_deps_installed ; fi
     #- sleep 550
 
 
 test:
   override:
     #- sleep 550
-    - pkg-versions.sh
+    #- pkg-versions.sh
     - exit 0
 
 #deployment:
