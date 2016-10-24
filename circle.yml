@@ -15,8 +15,9 @@ dependencies:
       # dependency phase
       if [[ $CIRCLE_NODE_INDEX != 0 ]]; then
         ssh node0 "ls -la $HOME/"
-        ssh node0 "ls -la $HOME/.bundle" ;
-        ssh node0 "ls -la $HOME/support_sandbox" ;
+        ssh node0 "ls -la $HOME/.bundle"
+        ssh node0 "ls -la $HOME/.bundle/cache"
+        ssh node0 "ls -la $HOME/support-sandbox"
       fi
 
     #- sleep 550
