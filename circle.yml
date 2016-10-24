@@ -7,7 +7,7 @@
 dependencies:
   pre:
     - |
-      if [[ CIRCLE_NODE_INDEX == 0 ]]; then gem install bundler && touch ruby_deps_installed ; fi
+      if [[ $CIRCLE_NODE_INDEX == 0 ]]; then gem install bundler && touch ruby_deps_installed ; fi
     #- sleep 550
 
 
