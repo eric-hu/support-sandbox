@@ -8,10 +8,16 @@ dependencies:
   pre:
     - |
       if [[ $CIRCLE_NODE_INDEX = 0 ]]; then
-        gem install bundler && bundle install && touch ruby_deps_installed ;
+        gem install bundler && bundle install ;
       fi
-    - if [[ $CIRCLE_NODE_INDEX != 0 ]]; then ssh node0 "ls -la $HOME/" ; fi:
-        parallel: true
+    - |
+      # Don't need parallel true because parallel is implied for all steps in
+      # dependency phase
+      if [[ $CIRCLE_NODE_INDEX != 0 ]]; then
+        ssh node0 "ls -la $HOME/"
+        ssh node0 "ls -la $HOME/.bundle" ;
+        ssh node0 "ls -la $HOME/support_sandbox" ;
+      fi
 
     #- sleep 550
 
