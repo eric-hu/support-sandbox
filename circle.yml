@@ -6,18 +6,26 @@
 
 dependencies:
   pre:
+    # Don't need parallel true on these because parallel is implied for all
+    # steps in dependency phase
+
+    # Install dependencies on container 0 only
     - |
       if [[ $CIRCLE_NODE_INDEX = 0 ]]; then
         gem install bundler && bundle install ;
+      else
+        echo "This step skipped on this container" ;
       fi
+
+    # Copy dependencies to containers 1-N
     - |
-      # Don't need parallel true because parallel is implied for all steps in
-      # dependency phase
       if [[ $CIRCLE_NODE_INDEX != 0 ]]; then
-        ssh node0 "ls -la $HOME/"
-        ssh node0 "ls -la $HOME/.bundle"
-        ssh node0 "ls -la $HOME/.bundle/cache"
-        ssh node0 "ls -la $HOME/support-sandbox"
+        scp -r node0:"$HOME/$CIRCLE_PROJECT_REPONAME/vendor" $HOME/$CIRCLE_PROJECT_REPONAME/vendor
+
+        # Sanity check dependencies registered properly
+        cd $HOME/$CIRCLE_PROJECT_REPONAME/bundle && bundle check
+      else
+        echo "This step skipped on this container" ;
       fi
 
     #- sleep 550
