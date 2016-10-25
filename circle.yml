@@ -23,7 +23,7 @@ dependencies:
         scp -r node0:"$HOME/$CIRCLE_PROJECT_REPONAME/vendor" $HOME/$CIRCLE_PROJECT_REPONAME/vendor
 
         # Sanity check dependencies registered properly
-        cd $HOME/$CIRCLE_PROJECT_REPONAME/bundle && bundle check
+        cd $HOME/$CIRCLE_PROJECT_REPONAME && bundle check
       else
         echo "This step skipped on this container" ;
       fi
