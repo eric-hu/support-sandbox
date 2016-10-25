@@ -20,7 +20,10 @@ dependencies:
     # Copy dependencies to containers 1-N
     - |
       if [[ $CIRCLE_NODE_INDEX != 0 ]]; then
+        # copy actual dependencies
         scp -r node0:"$HOME/$CIRCLE_PROJECT_REPONAME/vendor" $HOME/$CIRCLE_PROJECT_REPONAME/vendor
+        # copy dependency version manifest
+        scp -r node0:"$HOME/$CIRCLE_PROJECT_REPONAME/Gemfile.lock" $HOME/$CIRCLE_PROJECT_REPONAME/
 
         # Sanity check dependencies registered properly
         cd $HOME/$CIRCLE_PROJECT_REPONAME && bundle check
