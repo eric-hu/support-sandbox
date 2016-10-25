@@ -26,7 +26,7 @@ dependencies:
         scp -r node0:"$HOME/$CIRCLE_PROJECT_REPONAME/Gemfile.lock" $HOME/$CIRCLE_PROJECT_REPONAME/
 
         # Sanity check dependencies registered properly
-        cd $HOME/$CIRCLE_PROJECT_REPONAME && bundle check
+        cd $HOME/$CIRCLE_PROJECT_REPONAME && bundle check --path=vendor/bundle
       else
         echo "This step skipped on this container" ;
       fi
