@@ -13,6 +13,7 @@ dependencies:
     - |
       if [[ $CIRCLE_NODE_INDEX = 0 ]]; then
         gem install bundler && bundle install ;
+        npm install ;
       else
         echo "This step skipped on this container" ;
       fi
@@ -25,8 +26,13 @@ dependencies:
         # copy dependency version manifest
         scp -r node0:"$HOME/$CIRCLE_PROJECT_REPONAME/Gemfile.lock" $HOME/$CIRCLE_PROJECT_REPONAME/
 
+        # copy actual dependencies
+        scp -r node0:"$HOME/$CIRCLE_PROJECT_REPONAME/node_modules" $HOME/$CIRCLE_PROJECT_REPONAME/node_modules
+
         # Sanity check dependencies registered properly
         cd $HOME/$CIRCLE_PROJECT_REPONAME && bundle check --path=vendor/bundle
+
+        cd $HOME/$CIRCLE_PROJECT_REPONAME && npm install
       else
         echo "This step skipped on this container" ;
       fi
