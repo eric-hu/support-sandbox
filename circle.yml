@@ -12,7 +12,7 @@ dependencies:
     # Install dependencies on container 0 only
     - |
       if [[ $CIRCLE_NODE_INDEX = 0 ]]; then
-        gem install bundler && bundle install ;
+        gem install bundler && bundle install --path=vendor/bundle --jobs=4 --retry=3 ;
         npm install ;
       else
         echo "This step skipped on this container" ;
