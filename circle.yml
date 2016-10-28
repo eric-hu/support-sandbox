@@ -8,6 +8,9 @@ dependencies:
       if [[ $CIRCLE_NODE_INDEX = 0 ]]; then
         gem install bundler && bundle install --path=vendor/bundle --jobs=4 --retry=3 ;
         npm install ;
+
+        # compress bundle gems, store paths relative to project home
+        tar -czf $HOME/vendor-bundle.tar.gz -C $HOME/$CIRCLE_PROJECT_REPONAME/ vendor/
       else
         echo "This step skipped on this container" ;
       fi
@@ -15,12 +18,15 @@ dependencies:
     # Copy dependencies to containers 1-N
     - |
       if [[ $CIRCLE_NODE_INDEX != 0 ]]; then
-        # copy actual dependencies
-        scp -r node0:"$HOME/$CIRCLE_PROJECT_REPONAME/vendor" $HOME/$CIRCLE_PROJECT_REPONAME/vendor
-        # copy dependency version manifest
+        # copy bundle gems tar
+        scp -r node0:"$HOME/vendor-bundle.tar.gz" $HOME/vendor-bundle.tar.gz
+        # Untar bundle gems: full path is preserved
+        tar -xzf $HOME/vendor-bundle.tar.gz -C $HOME/$CIRCLE_PROJECT_REPONAME/
+
+        # copy dependency version manifest (Gemfile.lock)
         scp -r node0:"$HOME/$CIRCLE_PROJECT_REPONAME/Gemfile.lock" $HOME/$CIRCLE_PROJECT_REPONAME/
 
-        # copy actual dependencies
+        # copy node dependencies
         scp -r node0:"$HOME/$CIRCLE_PROJECT_REPONAME/node_modules" $HOME/$CIRCLE_PROJECT_REPONAME/node_modules
 
         # Sanity check dependencies registered properly
