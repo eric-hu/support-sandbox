@@ -6,10 +6,10 @@ dependencies:
     # Install dependencies on container 0 only
     - |
       if [[ $CIRCLE_NODE_INDEX = 0 ]]; then
-        #gem install bundler && bundle install --path=vendor/bundle --jobs=4 --retry=3 ;
+        gem install bundler && bundle install --path=vendor/bundle --jobs=4 --retry=3 ;
 
         # compress bundle gems, store paths relative to project home
-        #tar -czf $HOME/vendor-bundle.tar.gz -C $HOME/$CIRCLE_PROJECT_REPONAME/ vendor/
+        tar -czf $HOME/vendor-bundle.tar.gz -C $HOME/$CIRCLE_PROJECT_REPONAME/ vendor/
 
         npm install ;
         # compress npm deps, store paths relative to project home
@@ -23,12 +23,12 @@ dependencies:
     - |
       if [[ $CIRCLE_NODE_INDEX != 0 ]]; then
         # copy bundle gems tar
-        #scp -r node0:"$HOME/vendor-bundle.tar.gz" $HOME/vendor-bundle.tar.gz
+        scp -r node0:"$HOME/vendor-bundle.tar.gz" $HOME/vendor-bundle.tar.gz
         # Untar bundle gems: full path is preserved
-        #tar -xzf $HOME/vendor-bundle.tar.gz -C $HOME/$CIRCLE_PROJECT_REPONAME/
+        tar -xzf $HOME/vendor-bundle.tar.gz -C $HOME/$CIRCLE_PROJECT_REPONAME/
 
         # copy dependency version manifest (Gemfile.lock)
-        #scp -r node0:"$HOME/$CIRCLE_PROJECT_REPONAME/Gemfile.lock" $HOME/$CIRCLE_PROJECT_REPONAME/
+        scp -r node0:"$HOME/$CIRCLE_PROJECT_REPONAME/Gemfile.lock" $HOME/$CIRCLE_PROJECT_REPONAME/
 
         # copy npm deps tar
         scp -r node0:"$HOME/node-modules.tar.gz" $HOME/node-modules.tar.gz
@@ -36,7 +36,7 @@ dependencies:
         tar -xzf $HOME/node-modules.tar.gz -C $HOME/$CIRCLE_PROJECT_REPONAME/
 
         # Sanity check dependencies registered properly
-        #cd $HOME/$CIRCLE_PROJECT_REPONAME && bundle check --path=vendor/bundle
+        cd $HOME/$CIRCLE_PROJECT_REPONAME && bundle check --path=vendor/bundle
 
         cd $HOME/$CIRCLE_PROJECT_REPONAME && npm install
       else
