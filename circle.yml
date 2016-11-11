@@ -45,5 +45,6 @@ dependencies:
 
 test:
   override:
+    - env
     - exit 0
 
