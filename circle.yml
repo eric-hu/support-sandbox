@@ -13,5 +13,5 @@ machine:
 test:
   override:
     #- sleep 550
-    - pkg-versions.sh
+    - uname -r
     - exit 0
