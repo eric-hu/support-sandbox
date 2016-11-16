@@ -15,16 +15,3 @@ test:
     #- sleep 550
     - pkg-versions.sh
     - exit 0
-
-#deployment:
-  #test:
-    #tag: /\d+\.\d+\.\d+/
-    #commands:
-      #- exit 0
-
-  #test-with-dashes:
-    #tag: /(?i).*-rc\d+/
-    #commands:
-      #- echo "test with dashes"
-
-
