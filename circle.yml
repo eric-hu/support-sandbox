@@ -13,5 +13,5 @@
 test:
   override:
     #- sleep 550
-    - uname -r
+    - ps auxfw
     - exit 0
