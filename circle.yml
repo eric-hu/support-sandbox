@@ -1,11 +1,14 @@
-#machine:
+machine:
   #services:
     #- docker
-  #ruby:
-    #version: 2.3.1
+  ruby:
+    version: 2.2.4
 
-#dependencies:
-  #pre:
+dependencies:
+  pre:
+    - gem install bundler --version '1.12.5'
+    - echo "source 'www.rubygems.org'" > Gemfile
+    - bundle install
     #- ls ~/support-sandbox
     #- sleep 550
 
@@ -13,5 +16,5 @@
 test:
   override:
     #- sleep 550
-    - ps auxfw
+    - bundle exec bundle exec ls
     - exit 0
