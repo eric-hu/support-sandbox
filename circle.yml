@@ -6,9 +6,16 @@ machine:
 
 dependencies:
   pre:
+    - ruby --version
+    - gem --version
+    - gem list
+    - bundle --version
     - gem install bundler --version '1.12.5'
+    - bundle --version
+    - bundle show
     - echo "source 'https://rubygems.org'" > Gemfile
     - bundle install
+    - bundle show
     #- ls ~/support-sandbox
     #- sleep 550
 
