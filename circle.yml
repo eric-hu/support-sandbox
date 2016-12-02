@@ -7,7 +7,7 @@ machine:
 dependencies:
   pre:
     - gem install bundler --version '1.12.5'
-    - echo "source 'www.rubygems.org'" > Gemfile
+    - echo "source 'https://rubygems.org'" > Gemfile
     - bundle install
     #- ls ~/support-sandbox
     #- sleep 550
