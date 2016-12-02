@@ -12,8 +12,8 @@ dependencies:
     - bundle --version
     - gem install bundler --version '1.12.5'
     - bundle --version
-    - bundle show
     - echo "source 'https://rubygems.org'" > Gemfile
+    - bundle show
     - bundle install
     - bundle show
     #- ls ~/support-sandbox
