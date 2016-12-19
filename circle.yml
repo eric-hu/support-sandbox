@@ -4,24 +4,13 @@ machine:
   ruby:
     version: 2.2.4
 
-dependencies:
-  pre:
-    - ruby --version
-    - gem --version
-    - gem list
-    - bundle --version
-    - gem install bundler --version '1.12.5'
-    - bundle --version
-    - echo "source 'https://rubygems.org'" > Gemfile
-    - bundle show
-    - bundle install
-    - bundle show
-    #- ls ~/support-sandbox
-    #- sleep 550
+#dependencies:
+  #pre:
+    ##- sleep 550
 
 
 test:
   override:
     #- sleep 550
-    - bundle exec bundle exec ls
+    - curl -w '\n' http://127.0.0.1:6379/ping
     - exit 0
