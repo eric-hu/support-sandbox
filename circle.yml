@@ -1,8 +1,6 @@
 machine:
-  #services:
-    #- docker
-  ruby:
-    version: 2.2.4
+  services:
+    - redis
 
 #dependencies:
   #pre:
