@@ -13,5 +13,7 @@ test:
     - exit 0
 
 teardown:
+  pre:
+    - echo "test"
   post:
     - echo "test"
