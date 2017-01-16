@@ -12,3 +12,6 @@ test:
     #- sleep 550
     - curl -w '\n' http://127.0.0.1:6379/ping
     - exit 0
+
+teardown:
+  - echo "test"
