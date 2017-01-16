@@ -1,6 +1,8 @@
 machine:
   services:
     - redis
+  ruby:
+    version: 2.2.2
 
 #dependencies:
   #pre:
@@ -9,11 +11,9 @@ machine:
 
 test:
   override:
-    #- sleep 550
+    - git status
     - exit 0
 
 teardown:
   pre:
-    - echo "test"
-  post:
-    - echo "test"
+    - git status
