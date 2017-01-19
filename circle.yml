@@ -14,6 +14,10 @@ test:
     - git status
     - exit 0
 
-teardown:
-  pre:
-    - git status
+deployment:
+  master:
+    - echo "foo"
+
+deployment:
+  circle-yml-only:
+    - echo "foo"
