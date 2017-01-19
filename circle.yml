@@ -16,8 +16,12 @@ test:
 
 deployment:
   master:
-    - echo "foo"
+    branch: master
+    commands:
+      - echo "foo"
 
 deployment:
   circle-yml-only:
-    - echo "foo"
+    branch: circle-yml-only
+    commands:
+      - echo "foo"
