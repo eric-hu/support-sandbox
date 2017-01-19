@@ -15,13 +15,13 @@ test:
     - exit 0
 
 deployment:
-  master:
-    branch: master
+  circle-yml-only:
+    branch: circle-yml-only
     commands:
       - echo "foo"
 
 deployment:
-  circle-yml-only:
-    branch: circle-yml-only
+  master:
+    branch: master
     commands:
       - echo "foo"
