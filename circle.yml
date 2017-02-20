@@ -4,24 +4,12 @@ machine:
   ruby:
     version: 2.2.2
 
-#dependencies:
-  #pre:
-    ##- sleep 550
+dependencies:
+  override:
+    - yarn
 
 
 test:
   override:
     - git status
     - exit 0
-
-deployment:
-  circle-yml-only:
-    branch: circle-yml-only
-    commands:
-      - echo "foo"
-
-deployment:
-  master:
-    branch: master
-    commands:
-      - echo "foo"
