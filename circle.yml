@@ -1,8 +1,8 @@
-machine:
-  services:
-    - redis
-  ruby:
-    version: 2.2.2
+#machine:
+  #services:
+    #- redis
+  #ruby:
+    #version: 2.2.2
 
 #dependencies:
   #pre:
