@@ -11,17 +11,5 @@ machine:
 
 test:
   override:
-    - git status
-    - exit 0
-
-deployment:
-  circle-yml-only:
-    branch: circle-yml-only
-    commands:
-      - echo "foo"
-
-deployment:
-  master:
-    branch: master
-    commands:
-      - echo "foo"
+    - which google-chrome && google-chrome --version || echo "no google-chrome found in PATH"
+    - which chromedriver && chromedriver --version || echo "no chrome found in PATH"
