@@ -10,6 +10,8 @@
 
 
 test:
-  override:
-    - which google-chrome && google-chrome --version || echo "no google-chrome found in PATH"
-    - which chromedriver && chromedriver --version || echo "no chrome found in PATH"
+  pre:
+    - echo "current node is " $CIRCLE_NODE_INDEX
+  #override:
+    #- which google-chrome && google-chrome --version || echo "no google-chrome found in PATH"
+    #- which chromedriver && chromedriver --version || echo "no chrome found in PATH"
