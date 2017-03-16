@@ -11,7 +11,8 @@
 
 test:
   pre:
-    - echo "current node is " $CIRCLE_NODE_INDEX
+    - echo "current node is " $CIRCLE_NODE_INDEX:
+      parallel: true
   #override:
     #- which google-chrome && google-chrome --version || echo "no google-chrome found in PATH"
     #- which chromedriver && chromedriver --version || echo "no chrome found in PATH"
