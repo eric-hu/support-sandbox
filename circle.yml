@@ -11,7 +11,8 @@
 
 test:
   pre:
-    - mvn --version
+    - echo "adsf" > $CIRCLE_ARTIFACTS/foo
+    - exit 1
   #override:
     #- which google-chrome && google-chrome --version || echo "no google-chrome found in PATH"
     #- which chromedriver && chromedriver --version || echo "no chrome found in PATH"
