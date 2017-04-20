@@ -11,7 +11,7 @@
 
 test:
   pre:
-    - ruby --version
+    - ./testScript.sh
   #override:
     #- which google-chrome && google-chrome --version || echo "no google-chrome found in PATH"
     #- which chromedriver && chromedriver --version || echo "no chrome found in PATH"
