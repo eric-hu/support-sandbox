@@ -10,7 +10,7 @@
 
 machine:
   post:
-    - pyenv global 2.7.9 3.4.2
+    - pyenv global 2.7.12 3.4.4
 
 test:
   pre:
