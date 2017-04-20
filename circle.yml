@@ -8,10 +8,13 @@
   #pre:
     ##- sleep 550
 
+machine:
+  post:
+    - pyenv global 2.7.9 3.4.2
 
 test:
   pre:
-    - ./testScript.sh
+    - python --version
   #override:
     #- which google-chrome && google-chrome --version || echo "no google-chrome found in PATH"
     #- which chromedriver && chromedriver --version || echo "no chrome found in PATH"
