@@ -12,9 +12,9 @@ checkout:
   post:
     - echo "test"
 
-machine:
-  post:
-    - pyenv global 2.7 3.4
+#machine:
+  #post:
+    #- pyenv global 2.7 3.4
 
 test:
   pre:
