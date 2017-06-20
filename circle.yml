@@ -19,6 +19,8 @@ checkout:
 test:
   pre:
     - python --version
+    - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD && docker info | grep -i username
+    - docker info | grep -i username
   #override:
     #- which google-chrome && google-chrome --version || echo "no google-chrome found in PATH"
     #- which chromedriver && chromedriver --version || echo "no chrome found in PATH"
